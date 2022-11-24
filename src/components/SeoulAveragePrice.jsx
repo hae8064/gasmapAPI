@@ -7,7 +7,7 @@ function SeoulAveragePrice() {
   const onClick = async () => {
     try {
       const response = await axios.get(
-        `/api/avgSidoPrice.do?out=json&code=${process.env.REACT_APP_GASAPI}&sido=01`
+        `https://cors-anywhere.herokuapp.com/www.opinet.co.kr/api/avgSidoPrice.do?out=json&code=${process.env.REACT_APP_GASAPI}&sido=01`
       );
       setData((data) => {
         return [...data, response.data.RESULT.OIL[0].PRICE];
@@ -15,6 +15,7 @@ function SeoulAveragePrice() {
       setData((data) => {
         return [...data, response.data.RESULT.OIL[3].PRICE];
       });
+      console.log(response);
     } catch (e) {
       console.log(e);
     }

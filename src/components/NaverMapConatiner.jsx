@@ -11,7 +11,7 @@ const NaverMapConatiner = ({ lat, lng }) => {
           height: "30vh", // 네이버지도 세로 길이
         }}
         defaultCenter={{ lat: 37.5408428, lng: 126.9458903 }} // 지도 초기 위치
-        defaultZoom={16} // 지도 초기 확대 배율
+        defaultZoom={15} // 지도 초기 확대 배율
         zoomControl={true}
       >
         <Marker

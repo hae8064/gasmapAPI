@@ -20,15 +20,16 @@ function App() {
 
   return (
     <>
-      <div className="mainTitle">Gas Station</div>
+      <div className="mainTitle">위치기반 주유소</div>
       <RenderAfterNavermapsLoaded
+        // submodules={["geocoder"]}
         ncpClientId={process.env.REACT_APP_NAVERMAP}
         error={<p>Maps Load Error</p>}
         // loading={<p>Maps Loading...</p>}
         loading={<NaverMapConatiner lat={lat} lng={lng} />}
       ></RenderAfterNavermapsLoaded>
       {/* 내위치 확인 위도 경도  */}
-      위도:{lat}
+      위도: {lat}
       경도: {lng}
       {/* 서울시 평균 가격 */}
       <SeoulAveragePrice />
