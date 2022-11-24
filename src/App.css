@@ -1,7 +1,19 @@
-.mainTitle {
+.mainTitleContainer {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid blue;
   font-weight: 600;
   font-size: 1.5625rem;
+}
+
+.maintitle {
+  display: flex;
+}
+
+.gasIcon {
+  display: block;
+  justify-content: flex-start;
+  height: auto;
+  width: 2.1875rem;
+  margin-left: 0.625rem;
 }

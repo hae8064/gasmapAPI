@@ -6,6 +6,7 @@ import NaverMapConatiner from "./components/NaverMapConatiner";
 import axios from "axios";
 import geolocation from "geolocation";
 import useGeolocation from "./hooks/useGeolocation.tsx";
+import imgIcon from "./img/gasIcon.png";
 
 function App() {
   // 컴포넌트 안쪽에서 선언하면 에러 발생
@@ -20,7 +21,10 @@ function App() {
 
   return (
     <>
-      <div className="mainTitle">위치기반 주유소</div>
+      <div className="mainTitleContainer">
+        <div className="maintitle">위치기반 주유소</div>
+        <img className="gasIcon" src={imgIcon} alt="주유소아이콘" />
+      </div>
       <RenderAfterNavermapsLoaded
         // submodules={["geocoder"]}
         ncpClientId={process.env.REACT_APP_NAVERMAP}
@@ -29,6 +33,8 @@ function App() {
         loading={<NaverMapConatiner lat={lat} lng={lng} />}
       ></RenderAfterNavermapsLoaded>
       {/* 내위치 확인 위도 경도  */}
+      현재 위치는:
+      <br />
       위도: {lat}
       경도: {lng}
       {/* 서울시 평균 가격 */}

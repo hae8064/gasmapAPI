@@ -4,19 +4,6 @@ import React, { useEffect, useState } from "react";
 function SeoulAveragePrice() {
   const [data, setData] = useState([]);
 
-  // const response = async () => {
-  //   await axios.get(
-  //     `https://cors-anywhere.herokuapp.com/www.opinet.co.kr/api/avgSidoPrice.do?out=json&code=${process.env.REACT_APP_GASAPI}&sido=01`
-  //   );
-  //   setData((data) => {
-  //     return [...data, response.data.RESULT.OIL[0].PRICE];
-  //   });
-  //   setData((data) => {
-  //     return [...data, response.data.RESULT.OIL[3].PRICE];
-  //   });
-  //   console.log(response);
-  // };
-
   useEffect(() => {
     async function response() {
       const result = await axios.get(
@@ -55,7 +42,8 @@ function SeoulAveragePrice() {
         서울 평균 기름값
       </button> */}
       <br />
-      휘발유: {data[0]}, 경유: {data[1]}
+      <div className="seoul Average Title">서울 평균 주유소 금액</div>
+      휘발유: {Math.ceil(data[0])}, 경유: {Math.ceil(data[1])}
     </div>
   );
 }
