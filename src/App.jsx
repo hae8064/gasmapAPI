@@ -25,7 +25,7 @@ function App() {
         ncpClientId={process.env.REACT_APP_NAVERMAP}
         error={<p>Maps Load Error</p>}
         // loading={<p>Maps Loading...</p>}
-        loading={<NaverMapConatiner />}
+        loading={<NaverMapConatiner lat={lat} lng={lng} />}
       ></RenderAfterNavermapsLoaded>
       {/* 내위치 확인 위도 경도  */}
       위도:{lat}

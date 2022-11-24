@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps";
 
-const NaverMapConatiner = () => {
+const NaverMapConatiner = ({ lat, lng }) => {
   return (
     <div>
       <NaverMap
@@ -16,7 +16,7 @@ const NaverMapConatiner = () => {
       >
         <Marker
           key={1}
-          position={{ lat: 37.5408428, lng: 126.9458903 }}
+          position={{ lat: lat, lng: lng }}
           animation={2}
           clickable={true}
           onClick={() => {
