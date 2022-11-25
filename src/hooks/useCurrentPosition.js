@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const useCurrentLocation = (options = {}) => {
   // store location in state
@@ -26,7 +26,7 @@ const useCurrentLocation = (options = {}) => {
 
     // If the geolocation is not defined in the used browser we handle it as an error
     if (!geolocation) {
-      setError("Geolocation is not supported.");
+      setError('Geolocation is not supported.');
       return;
     }
 

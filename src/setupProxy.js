@@ -1,16 +1,17 @@
-const { createProxyMiddleware } = require("http-proxy-middleware");
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
-  //   app.use(
-  //     `/api/avgSidoPrice.do?out=json&code=${process.env.REACT_APP_GASAPI}&sido=01`,
-  //     createProxyMiddleware({
-  //       target: "http://www.opinet.co.kr",
-  //       changeOrigin: true,
-  //       //   pathRewrite: {
-  //       //     "^/api": "",
-  //       //   },
-  //     })
-  //   );
+  app.use(
+    `/api`,
+    createProxyMiddleware({
+      target:
+        'http://www.opinet.co.kr/api/avgSidoPrice.do?out=json&code=F221123420&sido=01',
+      changeOrigin: true,
+      //   pathRewrite: {
+      //     "^/api": "",
+      //   },
+    })
+  );
   //   app.use(
   //     "/api",
   //     createProxyMiddleware({

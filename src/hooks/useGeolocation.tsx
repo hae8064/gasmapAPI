@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 interface locationType {
   loaded: boolean;
@@ -36,10 +36,10 @@ const useGeolocation = () => {
   useEffect(() => {
     // navigator 객체 안에 geolocation이 없다면
     // 위치 정보가 없는 것.
-    if (!("geolocation" in navigator)) {
+    if (!('geolocation' in navigator)) {
       onError({
         code: 0,
-        message: "Geolocation not supported",
+        message: 'Geolocation not supported',
       });
     }
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
