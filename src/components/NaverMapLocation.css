@@ -1,0 +1,8 @@
+.currentLocation {
+  margin-top: 0.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}

@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-function SeoulAveragePrice() {
+const GyungiAveragePrcie = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function response() {
       const result = await axios.get(
-        `https://cors-anywhere.herokuapp.com/www.opinet.co.kr/api/avgSidoPrice.do?out=json&code=${process.env.REACT_APP_GASAPI}&sido=01`
+        `https://cors-anywhere.herokuapp.com/www.opinet.co.kr/api/avgSidoPrice.do?out=json&code=${process.env.REACT_APP_GASAPI}&sido=02`
         // '/api'
       );
       setData((data) => {
@@ -40,14 +40,14 @@ function SeoulAveragePrice() {
   return (
     <div className="seoulContainer">
       {/* <button className="apiClick" onClick={onClick}>
-        서울 평균 기름값
-      </button> */}
-      <div className="seoulAverageTitle">서울 평균 주유소 금액</div>
+          서울 평균 기름값
+        </button> */}
+      <div className="seoulAverageTitle">경기도 평균 주유소 금액</div>
       <div className="gasPriceSeoul">
         휘발유: {Math.ceil(data[0])}, 경유: {Math.ceil(data[1])}
       </div>
     </div>
   );
-}
+};
 
-export default SeoulAveragePrice;
+export default GyungiAveragePrcie;

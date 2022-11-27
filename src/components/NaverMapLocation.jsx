@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps';
+import './NaverMapLocation.css';
 
 const NaverMapLocation = ({ lat2, lng2, refresh }) => {
   const { naver } = window;
@@ -32,7 +33,11 @@ const NaverMapLocation = ({ lat2, lng2, refresh }) => {
     console.log(lat2, lng2);
   }, [refresh]);
 
-  return <>현재 주소는: {myLocation}</>;
+  return (
+    <>
+      <div className="currentLocation">현재 위치: {myLocation}</div>
+    </>
+  );
 };
 
 export default NaverMapLocation;
