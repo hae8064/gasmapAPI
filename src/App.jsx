@@ -22,6 +22,7 @@ function App() {
   const [lng2, setLng2] = useState();
   const [dataLocation, setDataLocation] = useState([]);
   const [refresh, setRefresh] = useState(1);
+  const [display, setDisplay] = useState('off');
 
   useEffect(() => {
     setLat2(location.coordinates.lat.toFixed(4));
@@ -51,10 +52,18 @@ function App() {
 
   console.log(result[0], result[1]);
 
+  const hamburgerOnclick = () => {
+    setDisplay('on');
+  };
+
   return (
     <>
       <div className="mainTitleContainer">
-        <GiHamburgerMenu className="hamburgerbar" />
+        <GiHamburgerMenu
+          className="hamburgerbar"
+          onClick={hamburgerOnclick}
+          display={display}
+        />
         <div className="mainTitleCenter">
           <div className="maintitle">위치기반 주유소</div>
           <img className="gasIcon" src={imgIcon} alt="주유소아이콘" />
@@ -83,6 +92,7 @@ function App() {
 
       {/* 내 위치 근처 최대 5km 내 주유소 목록 */}
       <GpsBasedGasStation katecX={result[0]} katecY={result[1]} />
+
       {/* 서울시 평균 가격 */}
       <SeoulAveragePrice />
       <GyungiAveragePrcie />
