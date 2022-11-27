@@ -17,3 +17,8 @@
   width: 2.1875rem;
   margin-left: 0.625rem;
 }
+
+.refreshIcon {
+  position: fixed;
+  right: 10px;
+}

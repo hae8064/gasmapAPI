@@ -8,12 +8,15 @@ import geolocation from 'geolocation';
 import useGeolocation from './hooks/useGeolocation.tsx';
 import imgIcon from './img/gasIcon.png';
 import NaverMapLocation from './components/NaverMapLocation';
+import { FiRefreshCcw } from 'react-icons/fi';
 
 function App() {
   // 컴포넌트 안쪽에서 선언하면 에러 발생
   const location = useGeolocation();
   const [lat2, setLat2] = useState();
   const [lng2, setLng2] = useState();
+  const [dataLocation, setDataLocation] = useState([]);
+  const [refresh, setRefresh] = useState(1);
 
   useEffect(() => {
     setLat2(location.coordinates.lat.toFixed(4));
@@ -25,23 +28,31 @@ function App() {
       <div className="mainTitleContainer">
         <div className="maintitle">위치기반 주유소</div>
         <img className="gasIcon" src={imgIcon} alt="주유소아이콘" />
+        <FiRefreshCcw
+          className="refreshIcon"
+          onClick={() => {
+            console.log('refresh');
+            setRefresh(2);
+          }}
+        />
       </div>
       <RenderAfterNavermapsLoaded
         // submodules={["geocoder"]}
         ncpClientId={process.env.REACT_APP_NAVERMAP}
         error={<p>Maps Load Error</p>}
         // loading={<p>Maps Loading...</p>}
-        loading={<NaverMapConatiner lat2={lat2} lng2={lng2} />}
+
+        loading={
+          <NaverMapConatiner lat2={lat2} lng2={lng2} refresh={refresh} />
+        }
       ></RenderAfterNavermapsLoaded>
       {/* 내위치 확인 위도 경도  */}
-      현재 위치는:
+      <NaverMapLocation lat2={lat2} lng2={lng2} refresh={refresh} />
       <br />
       위도: {lat2}
       경도: {lng2}
       {/* 서울시 평균 가격 */}
       <SeoulAveragePrice />
-      {/* 도로명 주소 */}
-      {/* <NaverMapLocation /> */}
     </>
   );
 }

@@ -4,13 +4,13 @@ import useGeolocation from '../hooks/useGeolocation.tsx';
 
 const { naver } = window;
 
-const NaverMapConatiner = () => {
+const NaverMapConatiner = ({ refresh }) => {
   // const location = useGeolocation();
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
 
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
-  const [refresh, setRefresh] = useState(1);
+  const [refresh2, setRefresh2] = useState(1);
 
   useEffect(() => {
     var options = {
@@ -43,10 +43,6 @@ const NaverMapConatiner = () => {
       lng === undefined ? 127.1229117 : lng
     );
 
-    // let markerList = [];
-    // const HOME_PATH = window.HOME_PATH || '.';
-    // Number(location.coordinates.lat.toFixed(4)),
-    // Number(location.coordinates.lng.toFixed(4))
     const mapOptions = {
       center: position,
       zoom: 17,
@@ -73,14 +69,14 @@ const NaverMapConatiner = () => {
     const marker = new naver.maps.Marker(markerOptions);
 
     console.log('loading navermap');
-  }, [refresh]);
+  }, [refresh, refresh2]);
 
   return (
     <div>
       <div
         id="map"
         onClick={() => {
-          setRefresh(2);
+          setRefresh2(2);
         }}
         style={{ width: '100%', height: '300px' }}
       ></div>

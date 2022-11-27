@@ -1,18 +1,38 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps';
 
-const NaverMapLocation = () => {
-  const data = axios.post(
-    'https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?coords=126.9124,37.4612&orders=addr&output=json',
-    {
-      headers: {
-        'X-NCP-APIGW-API-KEY-ID': process.env.REACT_APP_NAVERMAP, //앱 등록 시 발급받은 Client ID
-        'X-NCP-APIGW-API-KEY': process.env.REACT_APP_NAVER_SECRET, //앱 등록 시
+const NaverMapLocation = ({ lat2, lng2, refresh }) => {
+  const { naver } = window;
+
+  // let myLocation = [];
+  const [myLocation, setMyLocation] = useState([]);
+
+  useEffect(() => {
+    console.log(lat2, lng2);
+    naver.maps.Service.reverseGeocode(
+      {
+        location: new naver.maps.LatLng(
+          lat2 === undefined ? 37.3849483 : lat2,
+          lng2 === undefined ? 127.1229117 : lng2
+        ),
       },
-    }
-  );
+      function (status, response) {
+        if (status !== naver.maps.Service.Status.OK) {
+          return alert('Something wrong!');
+        }
 
-  return <>현재 도로명주소: {data}</>;
+        var result = response.result; // 검색 결과의 컨테이너
+        setMyLocation(result.items[0].address); // 검색 결과의 배열
+
+        // do Something
+        console.log(myLocation);
+      }
+    );
+
+    console.log(lat2, lng2);
+  }, [refresh]);
+
+  return <>현재 주소는: {myLocation}</>;
 };
 
 export default NaverMapLocation;

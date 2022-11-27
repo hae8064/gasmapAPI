@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { RenderAfterNavermapsLoaded, NaverMap, Marker } from 'react-naver-maps';
 
 function SeoulAveragePrice() {
   const [data, setData] = useState([]);
@@ -8,6 +9,7 @@ function SeoulAveragePrice() {
     async function response() {
       const result = await axios.get(
         `https://cors-anywhere.herokuapp.com/www.opinet.co.kr/api/avgSidoPrice.do?out=json&code=${process.env.REACT_APP_GASAPI}&sido=01`
+        // '/api'
       );
       setData((data) => {
         return [...data, result.data.RESULT.OIL[0].PRICE];
