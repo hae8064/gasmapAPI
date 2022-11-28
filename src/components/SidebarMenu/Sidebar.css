@@ -1,4 +1,27 @@
-.sidebarContainer {
-  background-color: lightgrey;
+.sidebarContaineron {
+  background-color: rgb(230, 230, 230);
   display: flex;
+  position: fixed;
+  z-index: 3;
+  top: 0px;
+  left: 30px;
+  width: 300px;
+  height: 100%;
+}
+
+.sidebarContaineroff {
+  display: none;
+}
+
+.ulTitle li {
+  margin-bottom: 30px;
+  text-decoration: none;
+  margin-top: 1.875rem;
+}
+
+.cancelIcon {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 5px;
 }

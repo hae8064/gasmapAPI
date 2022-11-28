@@ -17,4 +17,9 @@
   border: 1px solid grey;
   width: auto;
   height: 300px;
+  overflow: scroll;
+}
+
+.gasDataLi {
+  margin-top: 0.9375rem;
 }
