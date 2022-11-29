@@ -26,3 +26,9 @@
 .appContaineron {
   background: rgb(93, 92, 92);
 }
+
+.maintitle {
+  list-style: none;
+  text-align: none;
+  text-decoration: none;
+}
