@@ -74,7 +74,7 @@ function App() {
         />
         <Sidebar display={display} hamburgerOnclick={hamburgerCloseclick} />
         <div className="mainTitleCenter">
-          <Link to="/" style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
             <div className="maintitle">위치기반 주유소</div>
           </Link>
           <img className="gasIcon" src={imgIcon} alt="주유소아이콘" />

@@ -1,16 +1,21 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import "./GpsBasedGasStation.css";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import './GpsBasedGasStation.css';
 
 const GpsBasedGasStation = ({ katecX, katecY }) => {
   const [data, setData] = useState([]);
   const [price, setPrice] = useState([]);
+  const [newX, setNewX] = useState();
 
   let oilLength = 0;
   const oilArr = [];
 
   useEffect(() => {
-    console.log("katec " + katecX, katecY);
+    setNewX(katecX);
+  }, []);
+
+  useEffect(() => {
+    console.log('katec ' + katecX, katecY);
 
     async function response() {
       const result = await axios
@@ -30,14 +35,16 @@ const GpsBasedGasStation = ({ katecX, katecY }) => {
           for (let i = 0; i < 5; i++) {
             if (JSON.stringify(rep.data.RESULT.OIL[i].OS_NM) === undefined) {
               break;
-            }
-            setData((data3) => {
-              return [...data3, JSON.stringify(rep.data.RESULT.OIL[i].OS_NM)];
-            });
+            } else {
+              setData((data3) => {
+                return [...data3, JSON.stringify(rep.data.RESULT.OIL[i].OS_NM)];
+              });
 
-            setData((data3) => {
-              return [...data3, JSON.stringify(rep.data.RESULT.OIL[i].PRICE)];
-            });
+              setData((data3) => {
+                return [...data3, JSON.stringify(rep.data.RESULT.OIL[i].PRICE)];
+              });
+            }
+
             // setPrice((price) => {
             //   return [...price, JSON.stringify(rep.data.RESULT.OIL[i].PRICE)];
             // });
@@ -48,13 +55,13 @@ const GpsBasedGasStation = ({ katecX, katecY }) => {
       // console.log("주변 주유소 정보:" + result);
     }
     response();
-  }, [katecX, katecY]);
+  }, [katecX]);
 
-  console.log("광연 데이터는 ??" + data.map((data2) => data2));
+  console.log('과연 데이터는 ??' + data.map((data2) => data2));
 
   return (
     <div className="gpsBasedGasStationContainer">
-      <div className="gpsBasedTitle">주변 주유소 최저가 순</div>
+      <div className="gpsBasedTitle">주변 주유소 최저가 순 (경유)</div>
       <div className="gpsBasedContainerBox">
         <ul>
           {data.map((data, idx) =>

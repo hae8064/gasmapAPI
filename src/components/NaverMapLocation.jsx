@@ -29,9 +29,9 @@ const NaverMapLocation = ({ lat2, lng2, refresh }) => {
         console.log(myLocation);
       }
     );
-
+    console.log('현재주소: ' + myLocation);
     console.log(lat2, lng2);
-  }, [refresh]);
+  }, [refresh, myLocation]);
 
   return (
     <>
