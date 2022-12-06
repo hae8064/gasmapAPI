@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './GpsBasedGasStation.css';
 
+//GPS기반 내 위치 근처 주유소 확인
 const GpsBasedGasStation = ({ katecX, katecY }) => {
   const [data, setData] = useState([]);
   const [price, setPrice] = useState([]);
