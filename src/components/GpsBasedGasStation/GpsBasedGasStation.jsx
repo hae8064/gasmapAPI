@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './GpsBasedGasStation.css';
 
 //GPS기반 내 위치 근처 주유소 확인
+//현재 나의 위치 확인 가능 ??
 const GpsBasedGasStation = ({ katecX, katecY }) => {
   const [data, setData] = useState([]);
   const [price, setPrice] = useState([]);
@@ -33,6 +34,7 @@ const GpsBasedGasStation = ({ katecX, katecY }) => {
 
           oilLength = JSON.stringify(rep.data.RESULT.OIL).length;
 
+          //반복문 돌려서 내 위치 주변 주유소 5개 출력
           for (let i = 0; i < 5; i++) {
             if (JSON.stringify(rep.data.RESULT.OIL[i].OS_NM) === undefined) {
               break;
