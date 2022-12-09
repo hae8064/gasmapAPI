@@ -9,7 +9,6 @@ const NaverMapConatiner = ({ refresh }) => {
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
 
-  const [, forceUpdate] = useReducer((x) => x + 1, 0);
   const [refresh2, setRefresh2] = useState(1);
 
   useEffect(() => {
@@ -79,7 +78,9 @@ const NaverMapConatiner = ({ refresh }) => {
           setRefresh2(2);
         }}
         style={{ width: '100%', height: '300px' }}
-      ></div>
+      >
+        <NaverMap />
+      </div>
     </div>
 
     //실제 코드
