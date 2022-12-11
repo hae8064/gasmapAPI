@@ -59,9 +59,7 @@ const Home = () => {
         error={<p>Maps Load Error</p>}
         // loading={<p>Maps Loading...</p>}
 
-        loading={
-          <NaverMapConatiner lat2={lat2} lng2={lng2} refresh={refresh} />
-        }
+        loading={<NaverMapConatiner />}
       ></RenderAfterNavermapsLoaded>
       {/* 내위치 확인 위도 경도  */}
       <NaverMapLocation lat2={lat2} lng2={lng2} refresh={refresh} />

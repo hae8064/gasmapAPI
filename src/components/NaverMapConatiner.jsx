@@ -68,7 +68,7 @@ const NaverMapConatiner = ({ refresh }) => {
     const marker = new naver.maps.Marker(markerOptions);
 
     console.log('loading navermap');
-  }, [refresh, refresh2]);
+  }, []);
 
   return (
     <div>
@@ -78,76 +78,75 @@ const NaverMapConatiner = ({ refresh }) => {
           setRefresh2(2);
         }}
         style={{ width: '100%', height: '300px' }}
-      >
-        <NaverMap />
-      </div>
+      ></div>
     </div>
-
-    //실제 코드
-    // const location = useGeolocation();
-    // const [lat2, setLat2] = useState(37.3595704);
-    // const [lng2, setLng2] = useState(127.105399);
-
-    // //테스트 예제
-    // const navermaps = window.naver.maps;
-
-    // // const [latlng, setLatlng] = useState(
-    // //   new navermaps.LatLng(37.3595704, 127.105399)
-    // // );
-    // const locationMaps = new navermaps.LatLng(37.3595, 127.1053);
-
-    // useEffect(() => {
-    //   setLat2(location.coordinates.lat.toFixed(4));
-    //   setLng2(location.coordinates.lng.toFixed(4));
-    //   console.log(lat2, lng2);
-    // }, []);
-
-    // // useEffect(() => {
-    // //   setLatlat(lat2);
-    // //   setLnglng(lng2);
-
-    // //   console.log(
-    // //     '위도: ' + Number(lat2),
-    // //     lng2 + 'state값: ' + typeof latlat + lnglng
-    // //   );
-    // // }, [latlat, lnglng]);
-
-    // const buttonClick = () => {
-    //   alert('위치 새로고침');
-    //   setLat2(location.coordinates.lat.toFixed(4));
-    //   setLng2(location.coordinates.lng.toFixed(4));
-    // };
-    // console.log(lat2, lng2);
-
-    // return (
-    //   <div>
-    //     <NaverMap
-    //       onClick={buttonClick}
-    //       mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
-    //       style={{
-    //         width: '100%', // 네이버지도 가로 길이
-    //         height: '30vh', // 네이버지도 세로 길이
-    //       }}
-    //       // defaultCenter={{
-    //       //   lat: lat2,
-    //       //   lng: lng2,
-    //       // }} // 지도 초기 위치
-    //       defaultZoom={15} // 지도 초기 확대 배율
-    //       zoomControl={true}
-    //     >
-    //       <Marker
-    //         key={1}
-    //         position={{
-    //           lat: lat2,
-    //           lng: lng2,
-    //         }}
-    //         animation={2}
-    //         clickable={true}
-    //         onClick={buttonClick}
-    //       />
-    //     </NaverMap>
-    //   </div>
   );
+
+  //실제 코드
+  // const location = useGeolocation();
+  // const [lat2, setLat2] = useState(37.3595704);
+  // const [lng2, setLng2] = useState(127.105399);
+
+  // //테스트 예제
+  // const navermaps = window.naver.maps;
+
+  // // const [latlng, setLatlng] = useState(
+  // //   new navermaps.LatLng(37.3595704, 127.105399)
+  // // );
+  // const locationMaps = new navermaps.LatLng(37.3595, 127.1053);
+
+  // useEffect(() => {
+  //   setLat2(location.coordinates.lat.toFixed(4));
+  //   setLng2(location.coordinates.lng.toFixed(4));
+  //   console.log(lat2, lng2);
+  // }, []);
+
+  // // useEffect(() => {
+  // //   setLatlat(lat2);
+  // //   setLnglng(lng2);
+
+  // //   console.log(
+  // //     '위도: ' + Number(lat2),
+  // //     lng2 + 'state값: ' + typeof latlat + lnglng
+  // //   );
+  // // }, [latlat, lnglng]);
+
+  // const buttonClick = () => {
+  //   alert('위치 새로고침');
+  //   setLat2(location.coordinates.lat.toFixed(4));
+  //   setLng2(location.coordinates.lng.toFixed(4));
+  // };
+  // console.log(lat2, lng2);
+
+  // return (
+  //   <div>
+  //     <NaverMap
+  //       onClick={() => setRefresh2(2)}
+  //       mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
+  //       style={{
+  //         width: '100%', // 네이버지도 가로 길이
+  //         height: '30vh', // 네이버지도 세로 길이
+  //       }}
+  //       // defaultCenter={{
+  //       //   lat: lat2,
+  //       //   lng: lng2,
+  //       // }} // 지도 초기 위치
+  //       defaultZoom={15} // 지도 초기 확대 배율
+  //       zoomControl={true}
+  //     >
+  //       <Marker
+  //         key={1}
+  //         position={{
+  //           lat: 37.3849483,
+  //           lng: 127.1229117,
+  //         }}
+  //         animation={2}
+  //         clickable={true}
+  //         onClick={() => setRefresh2(2)}
+  //       />
+  //     </NaverMap>
+  //   </div>
+  // );
 };
 
 export default NaverMapConatiner;
